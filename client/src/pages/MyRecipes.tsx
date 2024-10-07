@@ -1,7 +1,7 @@
 function MyRecipes() {
     return(
         <div>
-
+            
         </div>
     )
 }
