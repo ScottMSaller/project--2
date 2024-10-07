@@ -1,7 +1,7 @@
 function Shopping() {
     return(
         <div>
-
+            
         </div>
     )
 }
