@@ -39,7 +39,7 @@ function Home() {
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center', 
-                backgroundColor: '#28a745', 
+                backgroundColor: '--lapiz-lazuli', 
                 color: 'white', 
                 border: 'none', 
                 fontSize:'0.75rem'
