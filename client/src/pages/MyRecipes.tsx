@@ -1,7 +1,9 @@
+import RecipeSearch from "../components/RecipeSearch";
+
 function MyRecipes() {
     return(
-        <div>
-            
+        <div className="row">
+            <RecipeSearch/>
         </div>
     )
 }
