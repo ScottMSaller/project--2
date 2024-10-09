@@ -1,7 +1,7 @@
 function RecipeCard() {
     return(
         <div>
-
+            
         </div>
     )
 }

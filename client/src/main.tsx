@@ -3,9 +3,9 @@ import { createRoot } from 'react-dom/client'
 import Navbar from "./components/Navbar"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
-import Shopping from "./pages/Shopping";
+import StoreLocator from "./pages/StoreLocator";
 import MyRecipes from "./pages/MyRecipes";
-
+import Search from './pages/Search';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,8 +16,12 @@ const router = createBrowserRouter([
     element: <Home/>
   },
   {
-    path: "/shopping",
-    element: <Shopping/>
+    path: "/store-locator",
+    element: <StoreLocator/>
+  },
+  {
+    path: "/search",
+    element: <Search/>
   },
   {
     path: "/my-recipes",
