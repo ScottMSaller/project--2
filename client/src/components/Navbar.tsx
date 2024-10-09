@@ -14,10 +14,13 @@ function Navbar() {
           <a className="nav-link" aria-current="page" href="home">Home</a>
         </li>
         <li className="nav-item">
+          <a className="nav-link" href="search">Search</a>
+        </li>
+        <li className="nav-item">
           <a className="nav-link" href="my-recipes">My Recipes</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="shopping">Shopping</a>
+          <a className="nav-link" href="store-locator">Store Locator</a>
         </li>
       </ul>
     </div>
