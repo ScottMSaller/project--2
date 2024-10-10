@@ -1,4 +1,5 @@
-// import React from 'react';
+import React from 'react';
+import SignUp from '../components/SignUp';
 import '../index.css';
 
 function Home() {
@@ -52,6 +53,7 @@ function Home() {
         </ul>
       </div>
     </div>
+    <SignUp/>
     </>
   );
 }
