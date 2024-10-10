@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
-    const RecipeModel = sequelize.define('Recipe', {
+const Recipe = (sequelize) => {
+    return sequelize.define('Recipe', {
       title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -15,8 +15,5 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
     });
-  
-    return RecipeModel;
-  };
-
-  
+  }
+export default Recipe;

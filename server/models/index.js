@@ -1,17 +1,25 @@
 import Sequelize from 'sequelize';
-import UserModel from './User.js';
-import RecipeModel from './Recipes.js';
+import User from './User.js';
+import Recipe from './Recipes.js';
 
 // Initialize Sequelize instance
-const sequelize = new Sequelize('postgres://user:password@localhost:5432/test_db');
-
+const sequelize = new Sequelize({
+  dialect: 'postgres',
+  database: 'recipe_boss_db' ,
+  username: 'postgres',
+  password: 'password',
+  host: 'localhost',
+  port: 5432,
+  ssl: true,
+  clientMinMessages: 'notice',
+});
 // Initialize models
-const User = UserModel(sequelize);
-const Recipe = RecipeModel(sequelize);
+const UserInstance = User(sequelize);
+const RecipeInstance = Recipe(sequelize);
 
 // Define relationships
-User.belongsToMany(Recipe, { through: 'UserRecipes' });
-Recipe.belongsToMany(User, { through: 'UserRecipes' });
+UserInstance.belongsToMany(RecipeInstance, { through: 'UserRecipes' });
+RecipeInstance.belongsToMany(UserInstance, { through: 'UserRecipes' });
 
 // Sync models
 sequelize.sync();
