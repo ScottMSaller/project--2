@@ -11,7 +11,7 @@ const sequelize = new Sequelize({
   host: 'localhost',
   port: 5432,
   ssl: true,
-  clientMinMessages: 'notice',
+  clientMinMessages: 'warning',
 });
 // Initialize models
 const UserInstance = User(sequelize);
