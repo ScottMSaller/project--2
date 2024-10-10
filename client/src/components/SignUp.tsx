@@ -1,4 +1,5 @@
 // Example in a React component
+import React from 'react';
 import { useState } from 'react';
 
 const SignUp = () => {
