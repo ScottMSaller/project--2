@@ -1,50 +1,32 @@
-# React + TypeScript + Vite
+## Recipe Boss - Recipe Search and Save Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Description
+This interactive website gives users the ability to search for specific recipes, save recipes to their own personal page, and conveniently locate local grocery stores to complete their ingredients list and restock on that pesky garlic powder that you always seem to be out of.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Visuals
+*Need to Add*
 
-## Expanding the ESLint configuration
+## Installation
+Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Usage
+As a user interested in cooking, I want a website that allows me to search/save recipes and locate local grocery stores in case I am in need of ingredients, so that I can easily access recipes for future cooking success.
 
-- Configure the top-level `parserOptions` property like this:
+## Support
+You may contact Scott, Alex, or Tushar with any questions, comments, or concerns that may arise. 
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Roadmap
+We are excited at the possibilities this website has to offer. 
+Future Development may include but is not limited to:
+- Personal ratings for recipes (difficulty level, time level, taste level)
+- The MyRecipes page can be reorganized and searched by categories (type of cuisine, amount of time, difficulty level, etc.)
+- A new search in which recipes can be crafted given a certain specific ingredients
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Contributing
+This team welcomes suggestions, contributions, and constructive feedback in hopes to continuously improve this website.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Authors and Acknowledgments
+This website was created through harmonious collaboration betweem Scott Saller, Alex Balara, and Tusha Patel.  We navigated this project through the use of internet reseach, reference to classroom activities, ChatGPT, and XPert Learning Assistant. We would like to extend a special thank you to our Professior, Nimit Patel and Teaching Assistant, Bobby Hoffman for the expertise and guidance through this project.
+
