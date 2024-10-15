@@ -10,6 +10,25 @@ interface RecipeHit {
   recipe: Recipe;
 }
 
+const addToRecipes = async (image: String, label: String, url: String) => {
+  const token = localStorage.getItem('token'); // Retrieve the JWT token
+
+    const response = await fetch('/api/users/my-recipes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Pass the token for authentication
+        },
+        body: JSON.stringify({ image, label, url }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to add recipe');
+    }
+
+    const result = await response.json();
+    return result;
+}
 const RecipeSearch: React.FC = () => {
   const [query, setQuery] = useState<string>('');
   const [recipes, setRecipes] = useState<RecipeHit[]>([]);
@@ -69,13 +88,13 @@ const RecipeSearch: React.FC = () => {
                 alt={item.recipe.label}
               />
               <div className="card-body">
-                <h5 className="card-title">{item.recipe.label}</h5>
-                <p className="card-text">Quick Description of Recipe</p>
+                <h5 className="card-label">{item.recipe.label}</h5>
               </div>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item" style={{ display: 'flex', alignItems: 'center' }}>
                   Add to My Recipes!
                   <button
+                  onClick={() => addToRecipes(item.recipe.image, item.recipe.label, item.recipe.url)}
                     style={{
                       marginLeft: '10px',
                       width: '25px',
@@ -84,12 +103,13 @@ const RecipeSearch: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      backgroundColor: 'lapis-lazuli', // Update this color if needed
+                      backgroundColor: 'lapis-lazuli',
                       color: 'white',
                       border: 'none',
                       fontSize: '0.75rem'
                     }}
                     className="btn btn-sm"
+                  
                   >
                     ✔
                   </button>

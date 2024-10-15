@@ -1,5 +1,5 @@
 import '../index.css';
-import { message } from '../util.js'
+import { message, isLoggedIn } from '../util.js'
 
 function Navbar() {
   const userMessage = message();
@@ -27,12 +27,12 @@ function Navbar() {
                       </li>
                   </ul>
                   <div className="ms-auto">
-                      <a className="nav-link btn" href="sign-in">Sign In</a>
+                      <a className="nav-link btn" href="sign-in">{isLoggedIn() ? 'Sign Out': 'Sign In'}</a>
                   </div>
               </div>
           </div>
       </nav>
-      <p className='float-end mr-5 small'>{userMessage}</p>
+      
     </div>
   );
 }
