@@ -1,5 +1,3 @@
-// Example in a React component
-import React from 'react';
 import { useState } from 'react';
 
 const SignUp = () => {
@@ -30,7 +28,7 @@ const SignUp = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='text-center '>
       <input
         type="text"
         placeholder="Username"

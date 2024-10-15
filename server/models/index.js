@@ -11,7 +11,4 @@ const RecipeInstance = Recipe(sequelize);
 UserInstance.belongsToMany(RecipeInstance, { through: 'UserRecipes' });
 RecipeInstance.belongsToMany(UserInstance, { through: 'UserRecipes' });
 
-export default {
-  User,
-  Recipe,
-};
+export { UserInstance as User, RecipeInstance as Recipe}

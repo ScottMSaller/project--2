@@ -1,16 +1,12 @@
 // services/userService.js
 import bcrypt from 'bcrypt';
-import Users from '../models/index.js';
-import Sequelize from 'sequelize';
+import { User } from '../models/index.js';
+console.log(User);
 
 async function signUpUser(username, email, password) {
     try {
-        // Check if the username or email already exists
-        const existingUser = await Users.findOne({ 
-            where: { 
-                [Sequelize.Op.or]: [{ username }, { email }] 
-            } 
-        });
+        // Check if the username already exists
+        const existingUser = await User.findOne({ where: { username }});
 
         if (existingUser) {
             return { message: 'Username or email already taken' };
@@ -21,7 +17,7 @@ async function signUpUser(username, email, password) {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         // Create a new user
-        const newUser = await Users.create({
+        const newUser = await User.create({
             username,
             email,
             password: hashedPassword
@@ -35,4 +31,19 @@ async function signUpUser(username, email, password) {
     }
 }
 
-export default signUpUser;
+
+const loginUser = async (username, enteredPassword) => {
+    // Retrieve the user from the database
+    const user = await User.findOne({ where: { username } });
+    if (!user) {
+        throw new Error('User not found');
+    }
+
+    // Compare the entered password with the hashed password
+    const passwordMatch = await bcrypt.compare(enteredPassword, user.password);
+    if (!passwordMatch) {
+        throw new Error('Invalid password');
+    }
+}
+
+export default {signUpUser, loginUser};

@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import StoreLocator from "./pages/StoreLocator";
 import MyRecipes from "./pages/MyRecipes";
 import Search from './pages/Search';
+import SignIn from "./pages/SignIn";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/my-recipes",
     element: <MyRecipes/>
+  },
+  {
+    path: "/signIn",
+    element: <SignIn/>
   },
 ])
 
