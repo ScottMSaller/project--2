@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import StoreLocator from "./pages/StoreLocator";
 import MyRecipes from "./pages/MyRecipes";
 import Search from './pages/Search';
+import Login from "./pages/Login";
+import CreateAccount from './pages/SignUp';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
     path: "/my-recipes",
     element: <MyRecipes/>
   },
+  {
+    path: "/sign-in",
+    element: <Login/>
+  },
+  {
+    path: "/sign-up",
+    element: <CreateAccount/>
+  }
 ])
 
 createRoot(document.getElementById('root')!).render(

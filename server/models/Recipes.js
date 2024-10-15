@@ -7,10 +7,10 @@ const Recipe = (sequelize) => {
         allowNull: false,
       },
       imageUrl: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
-      likes: {
+      url: {
         type: DataTypes.STRING,
         allowNull: false,
       },
