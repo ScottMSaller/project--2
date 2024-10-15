@@ -1,6 +1,5 @@
-import Login from "../components/Login"
 import SignUp from "../components/SignUp";
-function SignIn() {
+function CreateAccount() {
     return(
         <>
         <SignUp/>
@@ -8,4 +7,4 @@ function SignIn() {
     )
 }
 
-export default SignIn;
+export default CreateAccount;

@@ -1,7 +1,10 @@
 import '../index.css';
+import { message } from '../util.js'
 
 function Navbar() {
+  const userMessage = message();
   return (
+    <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
               <a className="navbar-brand" href="home">RecipeBoss</a>
@@ -24,11 +27,13 @@ function Navbar() {
                       </li>
                   </ul>
                   <div className="ms-auto">
-                      <a className="nav-link btn" href="signIn">Sign In</a>
+                      <a className="nav-link btn" href="sign-in">Sign In</a>
                   </div>
               </div>
           </div>
       </nav>
+      <p className='float-end mr-5 small'>{userMessage}</p>
+    </div>
   );
 }
 
