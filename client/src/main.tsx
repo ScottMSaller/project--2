@@ -8,6 +8,7 @@ import MyRecipes from "./pages/MyRecipes";
 import Search from './pages/Search';
 import Login from "./pages/Login";
 import CreateAccount from './pages/SignUp';
+import Footer from './components/Footer';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,5 +44,6 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Navbar/>
     <RouterProvider router={router} />
+    <Footer/>
   </StrictMode>,
 )
