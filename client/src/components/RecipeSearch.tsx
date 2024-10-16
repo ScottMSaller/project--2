@@ -36,6 +36,10 @@ const RecipeSearch: React.FC = () => {
   const [error, setError] = useState<string>('');
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(
+      `https://api.edamam.com/search?q=${encodeURIComponent(query)}&app_id=${import.meta.env.VITE_RECIPE_API_ID}&app_key=${import.meta.env.VITE_RECIPE_API_KEY}&from=0&to=5`
+    );
+    
     e.preventDefault();
     if (!query) return;
 
@@ -71,7 +75,7 @@ const RecipeSearch: React.FC = () => {
     placeholder="Search for a Recipe"
     aria-label="Recipe name"
   />
-  <button className="search-button" type="submit">Go!</button>
+  <button id="submit" className="search-button" type="submit">Go!</button>
 </div>
 
       </form>
