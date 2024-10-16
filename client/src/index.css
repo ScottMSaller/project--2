@@ -45,12 +45,31 @@ h1 {
 }
 
 p {
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     color: var(--sunglow);
     margin-bottom: 1rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
+    padding: 0 10rem;
 }
+
+h2 {
+    font-size: 1.75rem;
+    color: var(--cardinal);
+    margin-bottom: 1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--lapiz-lazuli);
+    margin-bottom: 1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    padding: 0 5rem;
+}   
 
 input {
     font-size: 5rem;
