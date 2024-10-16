@@ -1,4 +1,5 @@
 interface Recipe {
+  imageUrl: string | undefined;
   id: number;
   image: string;
   label: string;

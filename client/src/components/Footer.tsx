@@ -1,8 +1,7 @@
-import React from "react";
 function Footer() {
     return(
-        <div>
-
+        <div className="mx-auto p-3">
+            <p>© 2024 Recipe Boss Inc.</p>
         </div>
     )
 }
