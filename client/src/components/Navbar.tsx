@@ -1,8 +1,7 @@
 import '../index.css';
-import { message, isLoggedIn } from '../util.js'
+import { isLoggedIn } from '../util.js'
 
 function Navbar() {
-  const userMessage = message();
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
