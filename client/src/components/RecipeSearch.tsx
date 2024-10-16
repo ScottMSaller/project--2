@@ -71,7 +71,7 @@ const RecipeSearch: React.FC = () => {
     placeholder="Search for a Recipe"
     aria-label="Recipe name"
   />
-  <button className="search-button" type="button">Go!</button>
+  <button className="search-button" type="submit">Go!</button>
 </div>
 
       </form>
