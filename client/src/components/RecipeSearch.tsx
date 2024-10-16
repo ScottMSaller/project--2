@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../index.css';
 
 interface Recipe {
   label: string;
@@ -61,21 +62,18 @@ const RecipeSearch: React.FC = () => {
     <div className="container mt-5">
       <h1 className="text-center mb-4">Recipe Search</h1>
       <form onSubmit={handleSearch} className="mb-4">
-        <div className="input-group">
-          <input
-            type="text"
-            className="form-control"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Enter recipe name"
-            aria-label="Recipe name"
-          />
-          <div className="input-group-append">
-            <button className="btn btn-primary" type="submit">
-              Search
-            </button>
-          </div>
-        </div>
+      <div className="simple-search-bar">
+  <input
+    type="text"
+    className="form-control"
+    value={query}
+    onChange={(e) => setQuery(e.target.value)}
+    placeholder="Search for a Recipe"
+    aria-label="Recipe name"
+  />
+  <button className="search-button" type="button">Go!</button>
+</div>
+
       </form>
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="row">

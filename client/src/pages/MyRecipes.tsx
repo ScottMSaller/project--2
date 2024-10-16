@@ -15,7 +15,7 @@ function MyRecipes() {
     else return(
         <div>
             <h1>Whoops!</h1>
-            <p className="lead">Looks like you're not logged in. If you want to track your favorite recipes and more, please <a href="/sign-in">sign in.</a>If you're new to us, please <a href="/sign-up">click here</a> to create an account!</p>
+            <h3 className="lead">Looks like you're not logged in. If you want to track your favorite recipes and more, please <a href="/sign-in">sign in.</a> If you're new to us, please <a href="/sign-up">click here</a> to create an account!</h3>
         </div>
     )
     
