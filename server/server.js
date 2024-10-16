@@ -1,5 +1,6 @@
 // server.js
 import express, { json } from 'express';
+import path from 'path';
 const app = express();
 import userRoutes from './routes/userRoutes.js'; // Import your routes
 import sequelize from './config/connection.js';
