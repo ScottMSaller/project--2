@@ -65,7 +65,7 @@ const RecipeSearch: React.FC = () => {
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-4">Recipe Search</h1>
-      <form onSubmit={handleSearch} className="mb-4">
+      <form  className="mb-4">
       <div className="simple-search-bar">
   <input
     type="text"
@@ -75,7 +75,7 @@ const RecipeSearch: React.FC = () => {
     placeholder="Search for a Recipe"
     aria-label="Recipe name"
   />
-  <button id="submit" className="search-button" type="submit">Go!</button>
+  <button id="submit" className="search-button" onClick={(()=> handleSearch)}>Go!</button>
 </div>
 
       </form>
