@@ -35,8 +35,9 @@ const RecipeSearch: React.FC = () => {
   const [recipes, setRecipes] = useState<RecipeHit[]>([]);
   const [error, setError] = useState<string>('');
 
-  const handleSearch = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(query, e);
     if (!query) return;
 
     try {
@@ -61,7 +62,7 @@ const RecipeSearch: React.FC = () => {
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-4">Recipe Search</h1>
-      <form className="mb-4">
+      <form className="mb-4" onSubmit={handleSearch}>
   <div className="simple-search-bar">
     <input
       type="text"
@@ -74,8 +75,7 @@ const RecipeSearch: React.FC = () => {
     <button
       id="submit"
       className="search-button"
-      type="button"
-      onClick={(e) => handleSearch(e)}
+      type="submit"
     >
       Go!
     </button>
