@@ -113,3 +113,85 @@ h5 {
     font-weight: bold;
     text-align: center;
 }
+
+/* Container for the search bar */
+.simple-search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Ensures button and input stretch to the same height */
+    margin: 10px auto;
+    width: 100%;
+    max-width: 400px; /* Limits the width of the search bar */
+  }
+  
+  /* Styling for the input */
+  .form-control {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 4px 0 0 4px; /* Subtle rounding */
+    font-size: 14px;
+    height: 40px;
+    box-sizing: border-box; /* Ensures padding is included in width/height calculations */
+  }
+  
+  /* Styling for the button */
+  .search-button {
+    padding: 0 16px; /* Ensure consistent padding */
+    background-color: var(--sunglow);
+    color: white;
+    border: 1px solid #ccc; /* Add this to match the input border */
+    border-left: none; /* Remove border between input and button */
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    height: 40px;
+    box-sizing: border-box; /* Include padding/border in height */
+    display: flex; /* Flex to align text vertically */
+    align-items: center; /* Center the text inside */
+    justify-content: center; /* Center the text horizontally */
+  }
+  
+  /* Hover effect for the button */
+  .search-button:hover {
+    background-color: #ffcc33; /* A darker sunglow for hover */
+  }
+  
+  /* Input group styling */
+.input-group {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items */
+    align-items: stretch; /* Make items stretch to same height */
+  }
+  
+  /* Styling for the input */
+  .form-control {
+    flex-grow: 1;
+    padding: 10px; /* Padding for input */
+    border: 1px solid #ccc; /* Light border */
+    border-right: none; /* No border on right */
+    border-radius: 4px 0 0 4px; /* Rounded left corners */
+    font-size: 14px; /* Font size */
+    height: 40px; /* Fixed height */
+    box-sizing: border-box; /* Include padding/border in width/height */
+  }
+  
+  /* Styling for the button */
+  .btn-primary {
+    padding: 0 16px; /* Ensure consistent padding */
+    background-color: var(--sunglow); /* Use your color variable */
+    color: white; /* Button text color */
+    border: 1px solid #ccc; /* Light border */
+    border-left: none; /* No border on left to avoid double border */
+    border-radius: 0 4px 4px 0; /* Rounded right corners */
+    cursor: pointer; /* Pointer on hover */
+    height: 40px; /* Fixed height */
+    display: flex; /* Flex to center text vertically */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+  }
+  
+  /* Hover effect for the button */
+  .btn-primary:hover {
+    background-color: #ffcc33; /* Darker sunglow on hover */
+  }
