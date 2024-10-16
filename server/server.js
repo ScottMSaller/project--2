@@ -4,6 +4,14 @@ const app = express();
 import userRoutes from './routes/userRoutes.js'; // Import your routes
 import sequelize from './config/connection.js';
 const port = process.env.PORT || 4000;
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// The "catchall" handler: for any request that doesn't match one above,
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build/index.html'));
+});
+
 app.use(json()); // Middleware to parse JSON requests
 // Routes
 app.use('/api/users', userRoutes);
