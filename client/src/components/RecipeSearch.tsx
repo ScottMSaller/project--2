@@ -36,10 +36,6 @@ const RecipeSearch: React.FC = () => {
   const [error, setError] = useState<string>('');
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log(
-      `https://api.edamam.com/search?q=${encodeURIComponent(query)}&app_id=${import.meta.env.VITE_RECIPE_API_ID}&app_key=${import.meta.env.VITE_RECIPE_API_KEY}&from=0&to=5`
-    );
-    
     e.preventDefault();
     if (!query) return;
 
@@ -65,20 +61,19 @@ const RecipeSearch: React.FC = () => {
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-4">Recipe Search</h1>
-      <form  className="mb-4">
-      <div className="simple-search-bar">
-  <input
-    type="text"
-    className="form-control"
-    value={query}
-    onChange={(e) => setQuery(e.target.value)}
-    placeholder="Search for a Recipe"
-    aria-label="Recipe name"
-  />
-  <button id="submit" className="search-button" onClick={(()=> handleSearch)}>Go!</button>
-</div>
-
-      </form>
+      <form onSubmit={handleSearch} className="mb-4">
+  <div className="simple-search-bar">
+    <input
+      type="text"
+      className="form-control"
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      placeholder="Search for a Recipe"
+      aria-label="Recipe name"
+    />
+    <button id="submit" className="search-button" type="submit">Go!</button>
+  </div>
+</form>
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="row">
         {recipes.map((item, index) => (
