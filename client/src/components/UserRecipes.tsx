@@ -10,10 +10,10 @@ interface Recipe {
 async function fetchLikedRecipes(userId: Number) {
   try {
     const token = localStorage.getItem('token');
-    const response = await fetch(`api/users/${userId}/recipes`, {
+    const response = await fetch(`api/users/${userId}/recipes?timestamp=${new Date().getTime()}`, {
       headers: {
         method: 'GET',
-        Authorization: `Bearer ${token}`, // Ensure token is sent
+        Authorization: `Bearer ${token}`, 
         'Content-Type': 'application/json'
       },
     });
@@ -48,9 +48,12 @@ async function displayRecipes(setRecipes: React.Dispatch<React.SetStateAction<Re
 
 function UserRecipes() {
     const [recipes, setRecipes] = useState<Recipe[]>([]);
-
     useEffect(() => {
-        displayRecipes(setRecipes);
+      const fetchData = async () => {
+        await displayRecipes(setRecipes);
+      };
+    
+      fetchData();
     }, []);
 
     return(

@@ -1,24 +1,27 @@
-// server.js
 import express, { json } from 'express';
 import path from 'path';
-const app = express();
-import userRoutes from './routes/userRoutes.js'; // Import your routes
+import userRoutes from './routes/userRoutes.js'; 
 import sequelize from './config/connection.js';
-const port = process.env.PORT || 4000;
 import { fileURLToPath } from 'url';
+
+const app = express();
+const port = process.env.PORT || 4000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Middleware to parse JSON requests
+app.use(json()); 
+
+// API Routes
+app.use('/api/users', userRoutes);
+
+// Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-// The "catchall" handler: for any request that doesn't match one above,
-app.get('*', (_req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-  });
-
-app.use(json()); // Middleware to parse JSON requests
-// Routes
-app.use('/api/users', userRoutes);
+// Catchall handler for React routes (only for non-API routes)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 // Test database connection and sync models
 async function startServer() {
@@ -28,7 +31,7 @@ async function startServer() {
         console.log('Database models synchronized successfully.');
 
         // Start the Express server
-        app.listen(process.env.PORT, () => {
+        app.listen(port, () => {
             console.log(`Server is running on port ${port}`);
         });
 

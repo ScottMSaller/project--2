@@ -72,14 +72,8 @@ router.post('/my-recipes', authenticateToken, async (req, res) => {
 });
 
 router.get('/:userId/recipes', authenticateToken, async (req, res) => {
-  const { userId } = req.params;
-  console.log(`API called with userId: ${userId}`);
-
   try {
-    // Check if the JWT middleware passed
-    console.log(`Authenticated user: ${req.user.id}`);
-
-    // Find the user and include the associated recipes
+    const userId = req.params.userId;
     const user = await User.findByPk(userId, {
       include: {
         model: Recipe,
@@ -87,22 +81,18 @@ router.get('/:userId/recipes', authenticateToken, async (req, res) => {
       },
     });
 
-    // Log if the user is not found
     if (!user) {
-      console.log('User not found in database');
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Log the recipes
-    console.log('Recipes found for user:', user.Recipes);
-
-    // Send the list of liked recipes as a response
+    console.log('Recipes being sent:', user.Recipes);  // Log the data being returned
     res.json(user.Recipes);
   } catch (error) {
-    console.error('Error fetching user recipes:', error);
+    console.error('Error fetching recipes:', error);
     res.status(500).json({ message: 'Server error' });
   }
 });
+
 
 
 

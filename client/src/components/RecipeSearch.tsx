@@ -28,6 +28,7 @@ const addToRecipes = async (image: String, label: String, url: String) => {
     }
 
     const result = await response.json();
+    alert(`added ${label} to your recipes!`)
     return result;
 }
 const RecipeSearch: React.FC = () => {
