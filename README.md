@@ -5,10 +5,8 @@
 This interactive website gives users the ability to search for specific recipes, save recipes to their own personal page, and conveniently locate local grocery stores to complete their ingredients list and restock on that pesky garlic powder that you always seem to be out of.
 
 ## Visuals
-*Need to Add*
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+![alt text](<Project 2 Home Page.png>)
+![alt text](<Project 2 Search Page.png>)
 
 ## Usage
 As a user interested in cooking, I want a website that allows me to search/save recipes and locate local grocery stores in case I am in need of ingredients, so that I can easily access recipes for future cooking success.
@@ -29,4 +27,8 @@ This team welcomes suggestions, contributions, and constructive feedback in hope
 
 ## Authors and Acknowledgments
 This website was created through harmonious collaboration betweem Scott Saller, Alex Balara, and Tusha Patel.  We navigated this project through the use of internet reseach, reference to classroom activities, ChatGPT, and XPert Learning Assistant. We would like to extend a special thank you to our Professior, Nimit Patel and Teaching Assistant, Bobby Hoffman for the expertise and guidance through this project.
+
+## Links
+Deployed: https://project-2-c358.onrender.com/
+GitHiub Repository: https://github.com/ScottMSaller/project-2.git
 
