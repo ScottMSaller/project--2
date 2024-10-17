@@ -9,18 +9,15 @@ console.log(process.env.JWT_SECRET)
 
 async function signUpUser(username, email, password) {
     try {
-        // Check if the username already exists
         const existingUser = await User.findOne({ where: { username }});
 
         if (existingUser) {
             return { message: 'Username or email already taken' };
         }
 
-        // Hash the password
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
-
-        // Create a new user
+        
         const newUser = await User.create({
             username,
             email,

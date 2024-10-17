@@ -37,6 +37,7 @@ const RecipeSearch: React.FC = () => {
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(query, e);
     if (!query) return;
 
     try {
@@ -61,20 +62,25 @@ const RecipeSearch: React.FC = () => {
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-4">Recipe Search</h1>
-      <form onSubmit={handleSearch} className="mb-4">
-      <div className="simple-search-bar">
-  <input
-    type="text"
-    className="form-control"
-    value={query}
-    onChange={(e) => setQuery(e.target.value)}
-    placeholder="Search for a Recipe"
-    aria-label="Recipe name"
-  />
-  <button className="search-button" type="button">Go!</button>
-</div>
-
-      </form>
+      <form className="mb-4" onSubmit={handleSearch}>
+  <div className="simple-search-bar">
+    <input
+      type="text"
+      className="form-control"
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      placeholder="Search for a Recipe"
+      aria-label="Recipe name"
+    />
+    <button
+      id="submit"
+      className="search-button"
+      type="submit"
+    >
+      Go!
+    </button>
+  </div>
+</form>
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="row">
         {recipes.map((item, index) => (

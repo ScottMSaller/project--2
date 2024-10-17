@@ -1,11 +1,22 @@
 // server.js
 import express, { json } from 'express';
+import path from 'path';
 const app = express();
 import userRoutes from './routes/userRoutes.js'; // Import your routes
 import sequelize from './config/connection.js';
+const port = process.env.PORT || 4000;
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+// The "catchall" handler: for any request that doesn't match one above,
+app.get('*', (_req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
 
 app.use(json()); // Middleware to parse JSON requests
-
 // Routes
 app.use('/api/users', userRoutes);
 
@@ -17,9 +28,8 @@ async function startServer() {
         console.log('Database models synchronized successfully.');
 
         // Start the Express server
-        const PORT = 3001;
-        app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
+        app.listen(process.env.PORT, () => {
+            console.log(`Server is running on port ${port}`);
         });
 
     } catch (error) {

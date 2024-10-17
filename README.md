@@ -21,7 +21,6 @@ Future Development may include but is not limited to:
 - The MyRecipes page can be reorganized and searched by categories (type of cuisine, amount of time, difficulty level, etc.)
 - A new search in which recipes can be crafted given a certain specific ingredients
 
-
 ## Contributing
 This team welcomes suggestions, contributions, and constructive feedback in hopes to continuously improve this website.
 
