@@ -8,19 +8,32 @@ interface Recipe {
 }
 
 async function fetchLikedRecipes(userId: Number) {
-    try {
-      const response = await fetch(`/api/users/${userId}/recipes`);
-      
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-  
+  try {
+    const token = localStorage.getItem('token');
+    const response = await fetch(`api/users/${userId}/recipes`, {
+      headers: {
+        method: 'GET',
+        Authorization: `Bearer ${token}`, // Ensure token is sent
+        'Content-Type': 'application/json'
+      },
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
       const recipes = await response.json();
       return recipes;
-    } catch (error) {
-      console.error('Error fetching liked recipes:', error);
+    } else {
+      console.error('Expected JSON, but received:', await response.text());
+      throw new Error('Invalid content-type, expected JSON');
     }
+  } catch (error) {
+    console.error('Error fetching liked recipes:', error);
+    return [];
   }
+}
 
 const user = JSON.parse(localStorage.getItem('user') || '{}');
 

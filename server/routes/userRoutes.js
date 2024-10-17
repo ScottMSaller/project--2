@@ -71,30 +71,38 @@ router.post('/my-recipes', authenticateToken, async (req, res) => {
     }
 });
 
-router.get('/:userId/recipes', async (req, res) => {
-    const { userId } = req.params;
-    
-    try {
-      // Find the user and include the associated recipes
-      const user = await User.findByPk(userId, {
-        include: {
-          model: Recipe,
-          through: { attributes: [] } // Exclude junction table data if not needed
-        }
-      });
-  
-      // Check if the user exists
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-  
-      // Send the list of liked recipes as a response
-      res.json(user.Recipes); // `user.Recipes` contains the liked recipes
-    } catch (error) {
-      console.error('Error fetching user recipes:', error);
-      res.status(500).json({ message: 'Server error' });
+router.get('/:userId/recipes', authenticateToken, async (req, res) => {
+  const { userId } = req.params;
+  console.log(`API called with userId: ${userId}`);
+
+  try {
+    // Check if the JWT middleware passed
+    console.log(`Authenticated user: ${req.user.id}`);
+
+    // Find the user and include the associated recipes
+    const user = await User.findByPk(userId, {
+      include: {
+        model: Recipe,
+        through: { attributes: [] }, // Exclude junction table data if not needed
+      },
+    });
+
+    // Log if the user is not found
+    if (!user) {
+      console.log('User not found in database');
+      return res.status(404).json({ message: 'User not found' });
     }
-  });
+
+    // Log the recipes
+    console.log('Recipes found for user:', user.Recipes);
+
+    // Send the list of liked recipes as a response
+    res.json(user.Recipes);
+  } catch (error) {
+    console.error('Error fetching user recipes:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 
 
